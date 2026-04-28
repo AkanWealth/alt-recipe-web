@@ -1,0 +1,331 @@
+/* Page theme */
+:root {
+  --surface-strong: green;
+  --surface-soft: orange;
+  --text-main: #203128;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(196, 154, 44, 0.3), transparent 30%),
+    radial-gradient(circle at top right, rgba(31, 92, 58, 0.18), transparent 24%),
+    linear-gradient(180deg, #f9fcf4 0%, var(--bg-main) 48%, #dcebd9 100%);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--surface-strong);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: #143d27;
+  border-color: currentColor;
+}
+
+mark {
+  background: #f5e3a1;
+  color: inherit;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.section-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--surface-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.intro-text {
+  margin: 1.4rem 0 1.75rem;
+  max-width: 62ch;
+  color: var(--text-muted);
+  font-size: 1.04rem;
+}
+
+.recipe-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.meta-item {
+  padding: 1rem;
+  background: rgba(31, 92, 58, 0.06);
+  border: 1px solid rgba(31, 92, 58, 0.08);
+  border-radius: var(--radius-md);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.meta-item:hover {
+  transform: translateY(-2px);
+  background: rgba(31, 92, 58, 0.1);
+}
+
+.meta-label,
+.meta-value {
+  display: block;
+}
+
+.meta-label {
+  margin-bottom: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.meta-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.hero-image-card {
+  margin: 0;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(196, 154, 44, 0.18), rgba(31, 92, 58, 0.08));
+  border-radius: calc(var(--radius-lg) - 6px);
+}
+
+.hero-image {
+  width: 100%;
+  min-height: 100%;
+  border-radius: calc(var(--radius-lg) - 10px);
+  object-fit: cover;
+  box-shadow: 0 18px 34px rgba(27, 64, 42, 0.18);
+}
+
+.hero-image-card figcaption {
+  margin-top: 0.85rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.9fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.content-main,
+.content-side {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section-card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  color: var(--surface-strong);
+}
+
+.section-card {
+  padding: 1.6rem;
+}
+
+.section-intro {
+  margin-top: -0.35rem;
+  color: var(--text-muted);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.info-table th,
+.info-table td {
+  padding: 0.9rem 0.95rem;
+  text-align: left;
+}
+
+.info-table th {
+  background: var(--surface-strong);
+  color: #f8fcf7;
+  font-size: 0.94rem;
+}
+
+.info-table tr:nth-child(even) td {
+  background: rgba(196, 154, 44, 0.12);
+}
+
+.info-table tr:hover td {
+  background: rgba(31, 92, 58, 0.1);
+}
+
+.ingredient-list,
+.tips-list,
+.instruction-list {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.ingredient-list li,
+.tips-list li {
+  margin-bottom: 0.8rem;
+}
+
+.instruction-list {
+  counter-reset: instruction-step;
+  list-style: none;
+  padding-left: 0;
+}
+
+.instruction-list li {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 1rem 4rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(31, 92, 58, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.instruction-list li::before {
+  counter-increment: instruction-step;
+  content: counter(instruction-step);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--surface-strong), var(--surface-soft));
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.accent-card {
+  background: linear-gradient(180deg, rgba(244, 232, 178, 0.95), rgba(248, 253, 247, 0.94));
+}
+
+.page-footer {
+  padding: 1.5rem 0 0;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.page-footer small {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background: rgba(248, 253, 247, 0.8);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 1rem, 1120px);
+    padding-top: 0.8rem;
+  }
+
+  .hero,
+  .section-card {
+    padding: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .recipe-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .info-table,
+  .info-table tbody,
+  .info-table tr,
+  .info-table th,
+  .info-table td {
+    display: block;
+  }
+
+  .info-table tr {
+    margin-bottom: 0.9rem;
+    border: 1px solid rgba(31, 92, 58, 0.08);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .info-table th {
+    padding-bottom: 0.4rem;
+  }
+
+  .info-table td {
+    padding-top: 0.55rem;
+  }
+
+  .instruction-list li {
+    padding-left: 3.5rem;
+  }
+}
